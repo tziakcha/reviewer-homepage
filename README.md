@@ -6,18 +6,18 @@
 
 将下面按钮拖到收藏夹。
 
-[![Review](install.png) Review](javascript:void(function(u,s){s=document.body.appendChild(document.createElement('script'));s.src=u;s.charset='UTF-8'}('https://tc-review.pesiu.org/attach.js')))
+[![Review](install.png) Review](javascript:void(function(u,s){s=document.body.appendChild(document.createElement('script'));s.src=u+'?ts='+Date.now();s.charset='UTF-8'}('https://tc-review.pesiu.org/attach.js')))
 
 或手动创建以下项目
 
 - Name:  `Review`
-- URL:  `javascript:void(function(u,s){s=document.body.appendChild(document.createElement('script'));s.src=u;s.charset='UTF-8'}('https://tc-review.pesiu.org/attach.js'))`
+- URL:  `javascript:void(function(u,s){s=document.body.appendChild(document.createElement('script'));s.src=u+'?ts='+Date.now();s.charset='UTF-8'}('https://tc-review.pesiu.org/attach.js'))`
 
 
 或直接复制到地址栏运行。请注意复制后在开头重新添加 ```javascript:``` 。
 
 ``` javascript
-javascript:void(function(u,s){s=document.body.appendChild(document.createElement('script'));s.src=u;s.charset='UTF-8'}('https://tc-review.pesiu.org/attach.js'))
+javascript:void(function(u,s){s=document.body.appendChild(document.createElement('script'));s.src=u+'?ts='+Date.now();s.charset='UTF-8'}('https://tc-review.pesiu.org/attach.js'))
 ```
 
 # Usage
