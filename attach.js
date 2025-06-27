@@ -16,7 +16,15 @@
 
   const act2str = (act) => {
     act = act.trim();
-    if ("1" <= act.at(-1) && act.at(-1) <= "9") {
+    if (act.startsWith("Chi")) {
+      const components = act.split(/\s+/);
+      const tile = tc2tile(bz2tc(components.at(-1)));
+      const chi = `${+tile[0] - 1}${tile[0]}${+tile[0] + 1}${tile[1]}`;
+      return [
+        ...components.slice(0, -1),
+        chi,
+      ].join(" ");
+    } else if ("1" <= act.at(-1) && act.at(-1) <= "9") {
       const components = act.split(/\s+/);
       return [
         ...components.slice(0, -1),
