@@ -160,7 +160,7 @@
           console.error("Error fetching review data:", r.message);
           return;
         }
-        r.data.forEach((d) => {
+        (Array.isArray(r) ? r : r.data).forEach((d) => {
           if (d.ri) window.__reviews[`${d.rr}-${d.ri}`] = d;
         });
         window.__reviews_seats[is] = 2;
