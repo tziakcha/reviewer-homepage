@@ -20,10 +20,7 @@
       const components = act.split(/\s+/);
       const tile = tc2tile(bz2tc(components.at(-1)));
       const chi = `${+tile[0] - 1}${tile[0]}${+tile[0] + 1}${tile[1]}`;
-      return [
-        ...components.slice(0, -1),
-        chi,
-      ].join(" ");
+      return [...components.slice(0, -1), chi].join(" ");
     } else if ("1" <= act.at(-1) && act.at(-1) <= "9") {
       const components = act.split(/\s+/);
       return [
@@ -158,7 +155,12 @@
     fetch(`https://tc-api.pesiu.org/review/?id=${gameId}&seat=${is}`)
       .then((r) => r.json())
       .then((r) => {
-        r.forEach((d) => {
+        if (r.code) {
+          window.__reviews_seats[is] = 0;
+          console.error("Error fetching review data:", r.message);
+          return;
+        }
+        r.data.forEach((d) => {
           if (d.ri) window.__reviews[`${d.rr}-${d.ri}`] = d;
         });
         window.__reviews_seats[is] = 2;
@@ -170,4 +172,5 @@
         console.log("Download failed", gameId, is);
       });
   }
+  show_cands();
 })();
